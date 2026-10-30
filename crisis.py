@@ -32,7 +32,6 @@ def detect(text):
         model = pickle.load(open(MODEL, 'rb'))
     vec, clf = model
     prob = clf.predict_proba(vec.transform([text]))[0][1]
-    
     return {'is_crisis': prob >= 0.8, 'probability': prob, 'reason': '문맥 분석'}
 if __name__ == '__main__':
     train()
