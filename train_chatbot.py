@@ -21,7 +21,7 @@ examples = [make_example(q, a) for q, a in zip(data['문장'], data['답변'])]
 
 trainer = Trainer(
     model=model,
-    args=TrainingArguments(OUTPUT, num_train_epochs=3, per_device_train_batch_size=32, learning_rate=5e-5, logging_steps=100, save_strategy='no', report_to='none'),
+    args=TrainingArguments(OUTPUT, num_train_epochs=3, per_device_train_batch_size=8, gradient_accumulation_steps=4, learning_rate=5e-5, logging_steps=100, save_strategy='no', report_to='none', use_cpu=True),
     train_dataset=examples,
     data_collator=DataCollatorForSeq2Seq(tokenizer, padding=True)
 )

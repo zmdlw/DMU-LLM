@@ -19,7 +19,7 @@ RULES = '''너는 따뜻한 한국어 심리 상담 챗봇이야. 답변 하나�
 - 2~3문장, 150자 안팎, 한 문단, 부드러운 존댓말, 진단이나 약 이야기 금지, 답변 문장만 출력'''
 
 CBT = {}
-for line in open(os.path.join(ROOT, 'cbt_guide.txt'), encoding='utf-8'):
+for line in open(os.path.join(ROOT, 'cbt.txt'), encoding='utf-8'):
     emotion, technique, example = line.strip().split('|')
     CBT.setdefault(emotion, []).append((technique, example))
 
